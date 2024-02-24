@@ -1,0 +1,10 @@
+<h1><%= @customer.name %></h1>
+<h2>Order: <%= @order.id %></h2>
+
+<ul>
+  <% @order_items.each do |item| %>
+    <li><%= item.id %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back', customer_path(@customer) %>

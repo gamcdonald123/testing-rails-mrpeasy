@@ -6,10 +6,15 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "customers#index"
   resources :customers do
-    resources :orders do
-      resources :order_items
-    end
+    # Nested resources for orders if you need to list orders by customer or create new orders in the context of a customer
+    resources :orders, only: [:index, :new, :create]
   end
+
+  # Non-nested routes for Orders and OrderItems
+  resources :orders, except: [:index, :new, :create] do
+    resources :order_items, except: [:show, :index] # Adjust according to your needs
+  end
+
 end
