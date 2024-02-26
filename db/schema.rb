@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_24_112651) do
   end
 
   create_table "order_items", force: :cascade do |t|
+    t.string "name", null: false
     t.bigint "order_id", null: false
     t.bigint "item_id", null: false
     t.integer "quantity", default: 1, null: false

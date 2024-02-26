@@ -7,6 +7,6 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @customer = @order.customer
     @order_items = @order.order_items
-    raise
+    # raise
   end
 end

@@ -28,6 +28,7 @@ item_ids = Item.pluck(:id)
 
   3.times do
     OrderItem.create!(
+      name: Faker::Commerce.product_name,
       order_id: order.id,
       item_id: item_ids.sample, # This ensures you're using an existing item ID
       quantity: rand(1..5),

@@ -3,8 +3,9 @@
 
 <ul>
   <% @order_items.each do |item| %>
-    <li><%= item.id %></li>
+    <li><%= item.name %> | <%= item.quantity %> | £<%= item.item_price_at_purchase %></li>
   <% end %>
 </ul>
-
+£<%= @order.total_price  %>
+<br>
 <%= link_to 'Back', customer_path(@customer) %>
